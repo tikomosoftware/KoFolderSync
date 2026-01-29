@@ -1,5 +1,5 @@
 # KoFolderSync Dual Release Build Script
-param([string]$Version = "1.0.0")
+param([string]$Version = "1.0.1")
 
 $ErrorActionPreference = "Stop"
 Write-Host "KoFolderSync v$Version Dual Release Build" -ForegroundColor Cyan
@@ -42,7 +42,8 @@ try {
         Write-Host "   Done" -ForegroundColor Green
         $fwSuccess = $true
     }
-} catch {
+}
+catch {
     Write-Host "   Failed: $($_.Exception.Message)" -ForegroundColor Red
 }
 
@@ -67,7 +68,8 @@ try {
         Write-Host "   Done" -ForegroundColor Green
         $saSuccess = $true
     }
-} catch {
+}
+catch {
     Write-Host "   Failed: $($_.Exception.Message)" -ForegroundColor Red
 }
 

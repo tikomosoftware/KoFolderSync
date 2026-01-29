@@ -37,6 +37,7 @@
             groupBoxOptions = new GroupBox();
             checkBoxDryRun = new CheckBox();
             checkBoxDeleteExtra = new CheckBox();
+            checkBoxAlwaysOnTop = new CheckBox();
             buttonSync = new Button();
             buttonCancel = new Button();
             progressBar = new ProgressBar();
@@ -126,6 +127,18 @@
             groupBoxOptions.TabStop = false;
             groupBoxOptions.Text = "オプション";
             // 
+            // checkBoxAlwaysOnTop
+            // 
+            checkBoxAlwaysOnTop.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            checkBoxAlwaysOnTop.AutoSize = true;
+            checkBoxAlwaysOnTop.Location = new Point(444, 25);
+            checkBoxAlwaysOnTop.Name = "checkBoxAlwaysOnTop";
+            checkBoxAlwaysOnTop.Size = new Size(110, 23);
+            checkBoxAlwaysOnTop.TabIndex = 15;
+            checkBoxAlwaysOnTop.Text = "最前面表示";
+            checkBoxAlwaysOnTop.UseVisualStyleBackColor = true;
+            checkBoxAlwaysOnTop.CheckedChanged += checkBoxAlwaysOnTop_CheckedChanged;
+            // 
             // checkBoxDryRun
             // 
             checkBoxDryRun.AutoSize = true;
@@ -152,28 +165,34 @@
             // buttonSync
             // 
             buttonSync.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSync.BackColor = Color.FromArgb(0, 150, 136);
+            buttonSync.FlatStyle = FlatStyle.Flat;
             buttonSync.Font = new Font("Yu Gothic UI", 11F, FontStyle.Bold);
+            buttonSync.ForeColor = Color.White;
             buttonSync.Location = new Point(23, 275);
             buttonSync.Margin = new Padding(3, 4, 3, 4);
             buttonSync.Name = "buttonSync";
             buttonSync.Size = new Size(400, 51);
             buttonSync.TabIndex = 6;
             buttonSync.Text = "同期開始";
-            buttonSync.UseVisualStyleBackColor = true;
+            buttonSync.UseVisualStyleBackColor = false;
             buttonSync.Click += buttonSync_Click;
             // 
             // buttonCancel
             // 
             buttonCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonCancel.BackColor = SystemColors.Control;
             buttonCancel.Enabled = false;
+            buttonCancel.FlatStyle = FlatStyle.Flat;
             buttonCancel.Font = new Font("Yu Gothic UI", 11F, FontStyle.Bold);
+            buttonCancel.ForeColor = SystemColors.ControlText;
             buttonCancel.Location = new Point(429, 275);
             buttonCancel.Margin = new Padding(3, 4, 3, 4);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(125, 51);
             buttonCancel.TabIndex = 12;
             buttonCancel.Text = "停止";
-            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.UseVisualStyleBackColor = false;
             buttonCancel.Click += buttonCancel_Click;
             // 
             // progressBar
@@ -197,13 +216,16 @@
             // buttonClearLog
             // 
             buttonClearLog.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonClearLog.BackColor = Color.FromArgb(59, 130, 246);
+            buttonClearLog.FlatStyle = FlatStyle.Flat;
+            buttonClearLog.ForeColor = Color.White;
             buttonClearLog.Location = new Point(463, 388);
             buttonClearLog.Margin = new Padding(3, 4, 3, 4);
             buttonClearLog.Name = "buttonClearLog";
             buttonClearLog.Size = new Size(91, 32);
             buttonClearLog.TabIndex = 11;
             buttonClearLog.Text = "クリア";
-            buttonClearLog.UseVisualStyleBackColor = true;
+            buttonClearLog.UseVisualStyleBackColor = false;
             buttonClearLog.Click += buttonClearLog_Click;
             // 
             // textBoxLog
@@ -223,6 +245,7 @@
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(584, 520);
+            Controls.Add(checkBoxAlwaysOnTop);
             Controls.Add(buttonClearLog);
             Controls.Add(groupBoxOptions);
             Controls.Add(textBoxLog);
@@ -238,13 +261,12 @@
             Controls.Add(labelSource);
             LoadIconSafely();
             Margin = new Padding(3, 4, 3, 4);
-            MaximizeBox = false;
-            MaximumSize = new Size(600, 800);
-            MinimumSize = new Size(600, 540);
+            MaximizeBox = true;
+            MinimumSize = new Size(600, 560);
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "KoFolderSync v1.0.0";
+            Text = "KoFolderSync v1.0.1";
             Load += Form1_Load;
             Resize += Form1_Resize;
             groupBoxOptions.ResumeLayout(false);
@@ -264,6 +286,7 @@
         private GroupBox groupBoxOptions;
         private CheckBox checkBoxDeleteExtra;
         private CheckBox checkBoxDryRun;
+        private CheckBox checkBoxAlwaysOnTop;
         private Button buttonSync;
         private Button buttonCancel;
         private ProgressBar progressBar;

@@ -202,7 +202,12 @@
             _cancellationTokenSource = new CancellationTokenSource();
 
             buttonSync.Enabled = false;
+            buttonSync.BackColor = SystemColors.Control;
+            buttonSync.ForeColor = SystemColors.ControlText;
+
             buttonCancel.Enabled = true;
+            buttonCancel.BackColor = Color.FromArgb(239, 68, 68);
+            buttonCancel.ForeColor = Color.White;
             buttonBrowseSource.Enabled = false;
             buttonBrowseDestination.Enabled = false;
             checkBoxDeleteExtra.Enabled = false;
@@ -275,7 +280,12 @@
             finally
             {
                 buttonSync.Enabled = true;
+                buttonSync.BackColor = Color.FromArgb(0, 150, 136);
+                buttonSync.ForeColor = Color.White;
+
                 buttonCancel.Enabled = false;
+                buttonCancel.BackColor = SystemColors.Control;
+                buttonCancel.ForeColor = SystemColors.ControlText;
                 buttonBrowseSource.Enabled = true;
                 buttonBrowseDestination.Enabled = true;
                 checkBoxDeleteExtra.Enabled = true;
@@ -285,6 +295,11 @@
                 _cancellationTokenSource?.Dispose();
                 _cancellationTokenSource = null;
             }
+        }
+
+        private void checkBoxAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = checkBoxAlwaysOnTop.Checked;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

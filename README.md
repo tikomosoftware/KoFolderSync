@@ -203,11 +203,10 @@
 - カスタムアイコン
 - .NET 10.0 対応
 
-## サポート
+## 📞 サポート
 
-問題や質問がある場合は、以下の方法でお問い合わせください：
-
-- **GitHub Issues**: https://github.com/tikomosoftware/KoFolderSync/issues
+- **E-Mail**: tikomo@gmail.com
+- **HP**: https://tikomosoftware.github.io
 
 ## ライセンス
 
